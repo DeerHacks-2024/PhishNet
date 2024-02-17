@@ -11,7 +11,6 @@ function payload(urlToCheck) {
             threatEntryTypes: ['URL'],
             threatEntries: [
                 { url: urlToCheck },
-                ,
             ],
         },
     };

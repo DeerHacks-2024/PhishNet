@@ -1,31 +1,25 @@
 export async function makeAPICall(apiKey, url) {
-
-    let apiUrl = "https://www.virustotal.com/api/v3/urls";
-
-    const formData = new FormData();
-    formData.append('url', url);
+    const apiUrl = 'https://www.virustotal.com/vtapi/v2/url/report';
+    const params = new URLSearchParams({
+        apikey: apiKey,
+        resource: url,
+    });
 
 
     try {
+        const response = await fetch(`${apiUrl}?${params.toString()}`);
+        const result = await response.json();
 
-        const response = await fetch(apiUrl,
-            {
-                method: "POST",
-                headers: { 'x-apikey': apiKey },
-                body: formData
-            })
+        if (result.response_code === 1) {
 
-        const data = await response.json();
-        return data;
+            return result;
+
+        } else {
+            return "No results found for the URL.";
+        }
 
     } catch (error) {
-
-
-
         console.error('Error:', error);
-
-
+        throw error; // You may want to handle the error in a specific way based on your needs.
     }
-
-
 }

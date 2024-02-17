@@ -1,4 +1,5 @@
-import {GoogleSafeBrowse} from "./GoogleSafeBrowse/mainCaller.js";
+import { GoogleSafeBrowse } from "./GoogleSafeBrowse/mainCaller.js";
+import { VirusTotal } from "./VirusTotal/mainCaller.js";
 
 export class API_KEYS {
 
@@ -6,6 +7,7 @@ export class API_KEYS {
 
 
         this.GSB_KEY = "";
+        this.VT_KEY = "";
 
 
     }
@@ -21,6 +23,7 @@ export class PhishAPI {
 
         this.API_KEYS = API_KEYS;
         this.GSB = new GoogleSafeBrowse(this.API_KEYS.GSB_KEY);
+        this.virusTotal = new VirusTotal(this.API_KEYS.VT_KEY);
 
     }
 
@@ -29,6 +32,13 @@ export class PhishAPI {
         this.API_KEYS.GSB_KEY = key;
         this.GSB.API_KEY = key;
 
+
+    }
+
+    setVTKey(key) {
+
+        this.API_KEYS.VT_KEY = key;
+        this.VirusTotal.API_KEY = key;
 
     }
 
