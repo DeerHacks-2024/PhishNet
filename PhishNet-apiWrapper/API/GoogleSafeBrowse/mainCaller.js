@@ -30,8 +30,6 @@ export class GoogleSafeBrowse {
 
             threatsList.push(matches[i]["threatType"]);
 
-
-
         }
 
         return threatsList;
