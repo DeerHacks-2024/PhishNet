@@ -13,7 +13,7 @@ export class GoogleSafeBrowse {
 
     async isMalicious(url) {
         const lookup = await makeAPICall(this.API_KEY, url);
-        return (lookup["matches"] != [])
+        return (lookup["matches"] != null)
     }
 
 

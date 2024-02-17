@@ -54,5 +54,4 @@ async function testVirusTotalRaw(){
 
 }
 
-testGSBRaw()
-testGSBMalicious()
+testVirusTotalRaw()
