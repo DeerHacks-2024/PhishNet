@@ -41,20 +41,19 @@ const ScanComponent = () => {
 
   return (
     <div>
-      <input
-        type="text"
-        placeholder="Enter URL to scan"
-        value={url}
-        onChange={(e) => setUrl(e.target.value)}
-      />
-      <button onClick={handleScan}>Scan URL</button>
-      {results && results.matches.length > 0 && (
-        <div>
-          <h2>Scan Results</h2>
-
-          <h3>Google Safe Browsing:</h3>
-          {results.matches.map((match, index) => (
-            <table className="prettyTable" key={index}>
+    <input
+      type="text"
+      placeholder="Enter URL to scan"
+      value={url}
+      onChange={(e) => setUrl(e.target.value)}
+    />
+    <button onClick={handleScan}>Scan URL</button>
+    {results ? (
+      results.matches && results.matches.length > 0 ? (
+        results.matches.map((match, index) => (
+          <div key={index}>
+            <h2>Scan Results</h2>
+            <table className="prettyTable">
               <tbody>
                 <tr>
                   <th>Threat Type</th>
@@ -74,10 +73,15 @@ const ScanComponent = () => {
                 </tr>
               </tbody>
             </table>
-          ))}
+          </div>
+        ))
+      ) : (
+        <div>
+          <h2>No threats detected by Google Safe Browsing.</h2>
         </div>
-      )}
-    </div>
+      )
+    ) : null}
+  </div>
   );
 };
 
