@@ -4,7 +4,7 @@ import { makeAPICall } from "./API/GoogleSafeBrowse/subCaller.js"
 
 let url = "emilylovetr.wixsite.com";
 
-const API_KEY = "";
+const API_KEY = "AIzaSyCuXSnFYY-Q8hmphsEno9-tdJch-HtCdc8";
 
 
 async function testGSBMalicious() {
