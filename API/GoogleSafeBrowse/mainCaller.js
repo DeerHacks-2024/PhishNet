@@ -11,8 +11,8 @@ export class GoogleSafeBrowse {
     }
 
 
-    async isMalicious(url, API_KEY) {
-        const lookup = makeAPICall(this.API_KEY, url);
+    async isMalicious(url) {
+        const lookup = await makeAPICall(this.API_KEY, url);
         return (lookup["matches"] != [])
     }
 
@@ -22,7 +22,7 @@ export class GoogleSafeBrowse {
 
         const lookup = await makeAPICall(this.API_KEY, url);
 
-        let matches = lookup["matches"]
+        let matches = lookup["matches"] ?? []
 
         let threatsList = [];
 
