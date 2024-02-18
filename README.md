@@ -49,4 +49,3 @@ export const storage = getStorage(app);
     - Enable developer Mode
     - Select `Upload Package`
     - Select the `dist` directory & upload.
-    - Finally: Visit `src/Components/scripting` and `python check-url.py`
